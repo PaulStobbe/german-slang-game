@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Slang Game - Apprenez l'argot allemand</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇩🇪 German Slang Game</h1>
+            <p>Apprenez l'argot allemand à travers des conversations authentiques</p>
+            <div class="score-display">
+                <span class="score">Score: <span id="score">0</span></span>
+                <span class="level">Niveau: <span id="level">1</span></span>
+            </div>
+        </header>
+
+        <nav class="game-modes">
+            <button class="mode-btn active" data-mode="conversation">💬 Conversations</button>
+            <button class="mode-btn" data-mode="quiz">🎯 Quiz</button>
+            <button class="mode-btn" data-mode="flashcards">🔄 Flashcards</button>
+            <button class="mode-btn" data-mode="dictionary">📚 Dictionnaire</button>
+        </nav>
+
+        <main id="game-content">
+            <!-- Conversation Mode -->
+            <section id="conversation-mode" class="game-section active">
+                <div class="conversation-container">
+                    <h2>🗣️ Conversation du jour</h2>
+                    <div class="scenario-info">
+                        <h3 id="scenario-title">Au café avec des amis</h3>
+                        <p id="scenario-description">Vous discutez avec vos amis allemands dans un café de Munich.</p>
+                    </div>
+                    
+                    <div class="conversation-area">
+                        <div id="conversation-messages" class="messages"></div>
+                        <div class="response-options" id="response-options"></div>
+                    </div>
+                    
+                    <div class="conversation-controls">
+                        <button id="next-conversation" class="btn primary">Conversation suivante</button>
+                        <button id="show-hint" class="btn secondary">💡 Indice</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Mode -->
+            <section id="quiz-mode" class="game-section">
+                <div class="quiz-container">
+                    <h2>🎯 Quiz Slang</h2>
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div id="quiz-progress" class="progress-fill"></div>
+                        </div>
+                        <span id="quiz-counter">1/10</span>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h3 id="quiz-question-text">Que signifie "geil" en argot allemand ?</h3>
+                        <div id="quiz-options" class="quiz-options"></div>
+                    </div>
+                    
+                    <div class="quiz-feedback" id="quiz-feedback"></div>
+                    <button id="next-quiz" class="btn primary" style="display: none;">Question suivante</button>
+                </div>
+            </section>
+
+            <!-- Flashcards Mode -->
+            <section id="flashcards-mode" class="game-section">
+                <div class="flashcard-container">
+                    <h2>🔄 Flashcards</h2>
+                    <div class="flashcard" id="flashcard">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h3 id="flashcard-german">Geil!</h3>
+                                <p class="context" id="flashcard-context">Expression d'enthousiasme</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h3 id="flashcard-french">Génial ! Super !</h3>
+                                <p class="example" id="flashcard-example">"Das Konzert war echt geil!" - Le concert était vraiment génial !</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flashcard-controls">
+                        <button id="flip-card" class="btn secondary">🔄 Retourner</button>
+                        <button id="know-card" class="btn success">✅ Je sais</button>
+                        <button id="learn-card" class="btn warning">❌ À apprendre</button>
+                    </div>
+                    
+                    <div class="flashcard-progress">
+                        <span id="flashcard-counter">1/50</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dictionary Mode -->
+            <section id="dictionary-mode" class="game-section">
+                <div class="dictionary-container">
+                    <h2>📚 Dictionnaire d'argot</h2>
+                    <div class="search-bar">
+                        <input type="text" id="dictionary-search" placeholder="Rechercher un mot d'argot...">
+                        <button id="search-btn">🔍</button>
+                    </div>
+                    
+                    <div class="dictionary-categories">
+                        <button class="category-btn active" data-category="all">Tout</button>
+                        <button class="category-btn" data-category="emotions">Émotions</button>
+                        <button class="category-btn" data-category="people">Personnes</button>
+                        <button class="category-btn" data-category="activities">Activités</button>
+                        <button class="category-btn" data-category="expressions">Expressions</button>
+                    </div>
+                    
+                    <div id="dictionary-results" class="dictionary-results"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="progress-summary">
+                <h3>📊 Votre progression</h3>
+                <div class="progress-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="words-learned">0</span>
+                        <span class="stat-label">Mots appris</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="conversations-completed">0</span>
+                        <span class="stat-label">Conversations</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="streak-days">0</span>
+                        <span class="stat-label">Jours de suite</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="game-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
